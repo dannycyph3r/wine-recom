@@ -1,0 +1,70 @@
+<html>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+<script>
+
+window.onload = function(){
+  document.getElementById('preferences1').checked=true;
+}
+  
+
+function update(myRadio) {
+    currentValue = myRadio.value;
+    if (currentValue == '0') {
+      document.getElementById("select_form").style.display = "block"; 
+      document.getElementById("input_form").style.display = "none";  
+    }
+    if (currentValue == '1') {
+      document.getElementById("select_form").style.display = "none"; 
+      document.getElementById("input_form").style.display = "block";  
+    }
+  }
+  </script>
+  <body>
+    <div class="jumbotron"> 
+
+    <h1>White wine</h1>
+
+    <form action='/process_white' method='post'>
+        <div class='form-group'>
+          <label for="preferences"> Do you want to type your preferences?</label> <br>
+          <input type="radio" id="preferences1" name="preferences" value="1" checked onclick="update(this);">
+          <label for="yes">Yes</label>
+          <input type="radio" id="preferences2" name="preferences" value="0" onclick="update(this);">
+          <label for="no">No</label><br>
+        </div>
+        <div class='form-group' id = 'input_form'>
+          <input type='text' class='form-control' id='sentence' name='sentence'>
+        </div>
+        <div class='form-group' id = 'select_form' style='display:none;'>
+              <label for="item1">Item 1</label>
+              <select class='form-control' id="item1" name="item1" >
+                <option value="Pineapple" selected="selected">Pineapple</option>
+                <option value="Lime">Lime</option>
+                <option value="Gooseberry">Gooseberry</option>
+              </select>
+              <label for="item2">Item 2</label>
+              <select class='form-control' id="item2" name="item2" >
+                <option value="Mango" selected="selected">Mango</option>
+                <option value="Green apple">Green apple</option>
+                <option value="Sand">Sand</option>
+              </select>
+              <label for="item3">Item 3</label>
+              <select class='form-control' id="item3" name="item3" >
+                <option value="Chalk" selected="selected">Chalk</option>
+                <option value="Jasmine">Jasmine</option>
+                <option value="Grapefruit">Grapefruit</option>
+              </select>
+              <label for="item4">Item 4</label>
+              <select class='form-control' id="item4" name="item4" >
+                <option value="Vanilla"  selected="selected">Vanilla</option>
+                <option value="Petrol">Petrol</option>
+                <option value="Green pepper">Green pepper</option>
+              </select>
+        </div>
+        <div class='form-group'></div>
+          <button type='submit' class='btn btn-primary'>Go!</button>
+        </div>
+    </form>
+  </body>
+</html>
